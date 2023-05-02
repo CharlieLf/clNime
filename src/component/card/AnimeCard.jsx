@@ -58,7 +58,10 @@ export function FavButton ({id}){
 
     var addToFavorite = () =>{
         let temp = []
-        let listTemp = JSON.parse(localStorage.getItem("animeIDList"))
+        let listTemp = []
+        if(localStorage.getItem("animeIDList") != null){
+            listTemp = JSON.parse(localStorage.getItem("animeIDList"))
+        }
         temp.push(...listTemp)
         temp.push(id)
         
