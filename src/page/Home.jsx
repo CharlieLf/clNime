@@ -39,7 +39,7 @@ export default function Home(){
         <div>
         <Header />
 
-            <div className=" grid grid-cols-2 gap-x-1 gap-y-8 p-5"
+            <div className=" grid grid-cols-1 gap-x-1 gap-y-8 p-5"
             style={{backgroundColor:theme.pagebackgroundColor}}>
             {data.Page.media.map((media) => {
                 return <AnimeCard media={media}/>

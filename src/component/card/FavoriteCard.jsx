@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState , useEffect } from 'react';
-
+import { ThemeContext } from "../../lib/context/themeContext";
+import { useContext } from "react";
 
 export function FavoriteCard({media}){
+    let theme = useContext(ThemeContext);
 
     var searched = JSON.parse(localStorage.getItem("animeIDList"))
     let isTrue = searched.includes(media.id)
@@ -10,13 +12,15 @@ export function FavoriteCard({media}){
     if(isTrue){
         return (
 
-            <div className="flex flex-row text-white bg-black text-base m-3">
+            <div className="flex flex-row text-whitetext-base m-3 w-auto"
+            style={{backgroundColor: theme.headerbackgroundColor,
+            color : theme.textcolor}}>
     
-                <div className="flex flex-col items-center p-0 m-3 gap-y-5 rounded-md bg-opacity-60">
+                <div className="flex flex-col items-center pl-2 m-auto gap-y-5 rounded-md bg-opacity-60">
                     <CardImage src={media.coverImage.large}/>
                 </div>
     
-                <div className="flex flex-col items-start p-2 m-5 gap-y-2 rounded-md bg-opacity-60">
+                <div className="flex flex-col items-start p-0 m-5 gap-y-2 rounded-md bg-opacity-60">
                     <CardContent id={media.id}>{media.title.english}</CardContent>
                     <CardRating rating={media.averageScore}></CardRating>
                     <CardInfo episode={media.episodes}></CardInfo>
@@ -34,7 +38,7 @@ export function FavoriteCard({media}){
 }
 {/*  */}
 export function CardImage({...Attr}){
-    return <img {...Attr} className="w-36"/>;
+    return <img {...Attr} className="w-64 h-auto m-9"/>;
 }
 
 export function CardContent({id, children}){

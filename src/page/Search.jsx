@@ -53,7 +53,7 @@ export default function Search(){
             </form>
         </div>
 
-        <div className=" grid grid-cols-2 gap-x-1 gap-y-8 bg-slate-900 p-5">
+        <div className=" grid grid-cols-1 gap-x-1 gap-y-8 bg-slate-900 p-5">
             {data.Page.media.map((media) => {
                 return <FilteredCard media={media} filterTitle={findAnime}/>
                 
