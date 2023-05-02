@@ -5,6 +5,7 @@ import { useContext } from "react";
 
 export function FavoriteCard({media}){
     let theme = useContext(ThemeContext);
+    let check;
 
     var searched = JSON.parse(localStorage.getItem("animeIDList"))
     let isTrue = searched.includes(media.id)
